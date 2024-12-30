@@ -395,7 +395,7 @@ def test_dynamic_partition_overwrite_unpartitioned_evolve_to_identity_transform(
     # For a long string, the lower bound and upper bound  is truncated
     # e.g. aaaaaaaaaaaaaaaaaaaaaa has lower bound of aaaaaaaaaaaaaaaa and upper bound of aaaaaaaaaaaaaaab
     # this makes strict metric evaluator determine the file evaluate as ROWS_MIGHT_NOT_MATCH
-    # this further causes the partitioned data file to be overwriten rather than deleted
+    # this further causes the partitioned data file to be overwritten rather than deleted
     if part_col == "string_long":
         expected_operations = ["append", "append", "overwrite", "append"]
     assert tbl.inspect.snapshots().to_pydict()["operation"] == expected_operations
